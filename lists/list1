@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping list</title>
+    <link rel="stylesheet" href="style1.css">
+     </head>
+  
+    <body>
+        <div class="header">
+          <h1>Shopping list</h1>
+           <div class="item">
+            <label for="item">Enter a new item:</label>
+            <input type="text" name="item" id="results">
+            <button class="button button:hover" id="btn1" onmouseover="mouseOver()" onclick="but_Run()">Add item</button>
+            <button class="button" id="btn5"
+                    onclick = "clearBox()"> 
+                Clear
+            </button><br> 
+           </div>
+        </div>
+        <div class="container">
+            <div class="content1">
+                    <legend>Product List</legend>
+                    <form id="form">
+                    <p>
+                    <input type="radio" name="size" id="size_1" value="eggs" />
+                    <label for="size_1" >Eggs</label>
+                    
+                    </p>
+                    <p>
+                    <input type="radio" name="size" id="size_2"  value="cheese" />
+                    <label for="size_2">Cheese</label>
+                    
+                    </p>
+                    <p>
+                    <input type="radio" name="size" id="size_3" value="milk" />
+                    <label for="size_3">Milk</label>
+                    
+                    </p>
+                    </form>
+            </div>     
+            <div class="content2">
+                    <p>      
+                <button class="button" id="btn2" value="eggs" onclick = "clearItem1()"  >Delete item</button>
+                    </p>
+                    <p>
+                <button class="button" id="btn3" value="cheese" onclick = "clearItem2()">Delete item</button>
+                    </p>
+                    <p>
+                <button class="button" id="btn4" value="milk" onclick = "clearItem3()">Delete item</button>
+                    </p> 
+                    
+            </div>
+        </div>    
+        <div class="container2">
+            <legend>Your List</legend>
+            <div class="content3">
+                <div id="list"></div> 
+            </div>
+            <div class="content4">      
+                <button class="button" id="btn6" onmouseover="mouseOver()" onclick = "clearBox1()"> Clear list</button><br>
+            </div>    
+        </div>
+        
+        <script>
+            // the variable where will be all the list deposit
+            var arrf= [
+            
+            ];
+            var radios = document.querySelectorAll("input[name=\"size\"]");
+
+            // Use Array.forEach to add an event listener to each radio element.
+            radios.forEach(function(radio) {
+            radio.addEventListener('change', function() {
+                let valueName = document.querySelector('input[name="size"]:checked').value;
+                inputF.value = valueName;
+            })
+            });
+            let inputF = document.getElementById("results");
+
+            function but_Run() {
+                var uname=document.getElementById("results").value;
+              //  if is empty the textbox give one message
+                if (uname === ""){
+                    alert("You have to check something from the list")
+                }
+            
+                else if (uname === "eggs"){
+                document.getElementById("list").innerHTML = "";
+                boxvalue = document.getElementById('results').value;
+                arrf.push(boxvalue);
+                let list = document.getElementById("list");
+                for (i = 0; i < arrf.length; ++i) {
+                var li = document.createElement('li');
+                li.innerText = arrf[i];
+                list.appendChild(li);
+             }
+               
+                }
+                else if (uname === "cheese"){
+                    document.getElementById("list").innerHTML = "";
+                    boxvalue = document.getElementById('results').value;
+                    arrf.push(boxvalue); 
+                    let list = document.getElementById("list");
+                    for (i = 0; i < arrf.length; ++i) {
+                        var li = document.createElement('li');
+                        li.innerText = arrf[i];
+                        list.appendChild(li);
+                    }
+                   
+                }    
+                
+                else if (uname === "milk"){
+                document.getElementById("list").innerHTML = "";   
+                boxvalue = document.getElementById('results').value;
+                arrf.push(boxvalue); 
+                let list = document.getElementById("list");
+                for (i = 0; i < arrf.length; ++i) {
+                    var li = document.createElement('li');
+                    li.innerText = arrf[i];
+                    list.appendChild(li);
+                }
+                
+            }
+              
+        
+        }
+        // this is clearing the value from text box
+        function clearBox() {
+            document.getElementById("results").value = "";
+        
+        }
+        // this is clearing the list on the screen
+        function clearBox1() {
+            document.getElementById("list").innerHTML = "";
+        
+        }
+        
+        // the following functions are taking one item out from  the list
+        function clearItem1(){
+          document.getElementById("list").innerHTML = "";
+          arrf.indexOf('eggs') !== -1 && arrf.splice(arrf.indexOf('eggs'), 1)
+          let list = document.getElementById("list");
+          for (i = 0; i < arrf.length; ++i) {
+          var li = document.createElement('li');
+          li.innerText = arrf[i];
+          list.appendChild(li);
+          }
+        }
+        function clearItem2(){
+          document.getElementById("list").innerHTML = "";
+          arrf.indexOf('cheese') !== -1 && arrf.splice(arrf.indexOf('cheese'), 1)
+          let list = document.getElementById("list");
+          for (i = 0; i < arrf.length; ++i) {
+          var li = document.createElement('li');
+          li.innerText = arrf[i];
+          list.appendChild(li);
+          }
+        }
+        function clearItem3(){
+          document.getElementById("list").innerHTML = "";
+          arrf.indexOf('milk') !== -1 && arrf.splice(arrf.indexOf('milk'), 1)
+          let list = document.getElementById("list");
+          for (i = 0; i < arrf.length; ++i) {
+          var li = document.createElement('li');
+          li.innerText = arrf[i];
+          list.appendChild(li);
+          }
+        }
+        document.getElementsByClassName("button").onmouseover = function() {
+          navMouseOver()
+        };
+        document.getElementsByClassName("button").onmouseover(function() {
+        alert("test");
+         })
+          
+        console.log(arr)
+        
+        
+            console.log(arr);
+            console.log(arr1);
+            console.log(arr2);
+            
+            
+        </script>
+    </body>
+
+</html>
+
